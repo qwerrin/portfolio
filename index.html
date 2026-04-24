@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Portfolio</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- ナビゲーションバー（画面上部に固定） -->
+        <header>
+            <nav class="nav">
+                <span class="nav-logo">&lt;YourName /&gt;</span>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero セクション：自己紹介 -->
+        <section id="hero">
+            <div class="hero-content">
+                <p class="hero-greeting">こんにちは、私は</p>
+                <h1 class="hero-name">Your Name</h1>
+                <!-- タイピングアニメーションはここに表示される -->
+                <p class="hero-tagline">
+                    <span id="typing"></span><span class="cursor">|</span>
+                </p>
+                <div class="hero-links">
+                    <a href="https://github.com/" target="_blank" class="btn">GitHub</a>
+                    <a href="https://twitter.com/" target="_blank" class="btn btn-outline">Twitter</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills セクション：スキル一覧 -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Frontend</h3>
+                    <div class="badges">
+                        <span class="badge">HTML</span>
+                        <span class="badge">CSS</span>
+                        <span class="badge">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-title">Tools</h3>
+                    <div class="badges">
+                        <span class="badge">Git</span>
+                        <span class="badge">GitHub</span>
+                        <span class="badge">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects セクション：作品一覧 -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <h3 class="project-title">Portfolio Site</h3>
+                    <p class="project-desc">
+                        HTML / CSS / JavaScript で作ったポートフォリオサイト。ダークテーマ・タイピングアニメーション実装。
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/" target="_blank" class="project-link">View on GitHub →</a>
+                </article>
+
+                <article class="project-card">
+                    <h3 class="project-title">Project 2</h3>
+                    <p class="project-desc">
+                        次のプロジェクトの説明をここに書きます。
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/" target="_blank" class="project-link">View on GitHub →</a>
+                </article>
+
+                <article class="project-card">
+                    <h3 class="project-title">Project 3</h3>
+                    <p class="project-desc">
+                        さらに別のプロジェクトの説明をここに書きます。
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">CSS</span>
+                        <span class="tag">HTML</span>
+                    </div>
+                    <a href="https://github.com/" target="_blank" class="project-link">View on GitHub →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- フッター -->
+        <footer>
+            <p>© 2026 Your Name. Built with HTML / CSS / JS.</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

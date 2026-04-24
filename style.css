@@ -1,0 +1,336 @@
+/* ============================================================
+   CSS 変数：色・フォントをここで一括管理
+   値を変えるだけでサイト全体のデザインが変わる
+   ============================================================ */
+:root {
+  --bg: #0d1117;        /* 背景色（GitHub ダークと同じ） */
+  --surface: #161b22;   /* カード・ナビの背景色 */
+  --border: #30363d;    /* ボーダーの色 */
+  --text: #c9d1d9;      /* 本文テキスト */
+  --text-muted: #8b949e; /* 薄めのテキスト */
+  --accent: #58a6ff;    /* アクセントカラー（青） */
+  --green: #3fb950;     /* サブアクセント（緑） */
+  --font: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+/* ============================================================
+   リセット & ベーススタイル
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* スムーズスクロールを有効化 */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   ナビゲーションバー
+   ============================================================ */
+header {
+  position: fixed; /* 画面上部に固定 */
+  top: 0;
+  width: 100%;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ============================================================
+   Hero セクション
+   ============================================================ */
+#hero {
+  min-height: 100vh;  /* 画面の高さ全体を使う */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 3rem;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-greeting {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* 画面幅に応じてサイズ変化 */
+  font-weight: 800;
+  /* グラデーションテキスト */
+  background: linear-gradient(135deg, var(--accent), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  min-height: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite; /* カーソルの点滅 */
+  color: var(--accent);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ボタン */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  background-color: var(--accent);
+  color: #0d1117;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ============================================================
+   セクション共通スタイル
+   ============================================================ */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: var(--text);
+  /* タイトルの左に緑のラインを引く */
+  border-left: 4px solid var(--green);
+  padding-left: 1rem;
+}
+
+/* スクロールアニメーション用の初期状態 */
+.section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* JavaScript が .visible クラスを付けたら表示される */
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Skills セクション
+   ============================================================ */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skill-group-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  background-color: var(--surface);
+  transition: border-color 0.2s;
+}
+
+.badge:hover {
+  border-color: var(--accent);
+}
+
+/* ============================================================
+   Projects セクション
+   ============================================================ */
+.projects-grid {
+  display: grid;
+  /* 最小240px、余ったスペースを均等配分 */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  /* ホバーで浮き上がるエフェクト */
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(88, 166, 255, 0.1);
+}
+
+.project-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.project-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  flex: 1; /* 残りのスペースを埋める */
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  background-color: rgba(88, 166, 255, 0.1);
+  color: var(--accent);
+  border-radius: 4px;
+}
+
+.project-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ============================================================
+   フッター
+   ============================================================ */
+footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   レスポンシブ対応（スマートフォン）
+   ============================================================ */
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .hero-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; /* スマホでは1列 */
+  }
+}
